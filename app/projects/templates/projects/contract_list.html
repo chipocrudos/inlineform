@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<table>
+	<thead>
+	<tr>
+		<th>#</th>
+		<th>Name</th>
+		<th></th>
+	</tr>
+	</thead>
+	<tbody>
+	{% for object in object_list  %}
+	<tr>
+			<td>
+				{{ forloop.counter }}
+			</td>
+			<td>
+			{{ object.name }}
+			</td>
+			<td>
+				{% if object.taskcomplete and object.paymentcomplete %}
+					Process
+					<a href="{% url "project:contract" object %}" >View</a>
+				{% else %}
+					<a href="{% url "project:newtasks" object %}" >Complete project</a>
+				{% endif %}
+			</td>
+	</tr>
+		
+	{% endfor %}
+
+	</tbody>
+</table>
+	
+{% endblock content %}

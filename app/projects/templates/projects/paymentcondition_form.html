@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+paymentconditionpaymentcondition_form_submit
+{% block content %}
+  
+<form action="." method="post" accept-charset="utf-8">
+  {% csrf_token %}
+  {{ form.as_p }}
+  {{ task_form.as_p  }}
+  <button type="submit" >Save</button>
+</form>
+{% endblock  %}

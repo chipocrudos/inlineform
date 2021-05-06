@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Base</title>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="{% url "project:contractlist" %}" >Contract list</a></li>
+        <li><a href="{% url "project:newcontract" %}" >New Contract</a></li>
+      </ul>
+    </nav>
+    {% block content %} {% endblock content %}
+  </body>
+</html>

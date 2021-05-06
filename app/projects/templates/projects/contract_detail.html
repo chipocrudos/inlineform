@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h4>{{ object.name }}</h4>
+<hr/>
+{% for payment in object.paymentcondition_set.all %}
+<h6>Payment Condition <strong>{{payment.get_condition_display}}</strong> </h6>
+{% endfor %}
+
+<h6>Tasks</h6>
+{% for task in object.task_set.all %}
+<p>
+<strong>{{ task.title }}</strong>
+{% if task.description %}
+<div>
+   {% autoescape off %}
+      {{ task.description|linebreaksbr}}
+    {% endautoescape %}
+</div>
+  
+{% endif %}
+
+</p>
+  
+{% endfor %}
+
+{% endblock content %}
